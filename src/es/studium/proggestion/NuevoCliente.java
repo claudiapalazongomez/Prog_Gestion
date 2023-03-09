@@ -27,7 +27,7 @@ public class NuevoCliente implements WindowListener, ActionListener
 	Label lblCorreo = new Label("Correo:");
 	TextField txtCorreo = new TextField(10);
 	Button btnAceptar = new Button("Aceptar");
-	Button btnCancelar = new Button("Cancelar");
+	Button btnLimpiar = new Button("Limpiar");
 
 	Label lblMensaje = new Label("ALTA correcta");
 	Dialog dlgMensaje = new Dialog(menuNuevoCliente, "Aviso", true);
@@ -55,9 +55,9 @@ public class NuevoCliente implements WindowListener, ActionListener
 		menuNuevoCliente.add(txtCorreo);
 		
 		btnAceptar.addActionListener(this);
-		btnCancelar.addActionListener(this);
+		btnLimpiar.addActionListener(this);
 		menuNuevoCliente.add(btnAceptar);
-		menuNuevoCliente.add(btnCancelar);
+		menuNuevoCliente.add(btnLimpiar);
 
 		menuNuevoCliente.setLocationRelativeTo(null);
 		menuNuevoCliente.setResizable(false);
@@ -140,7 +140,7 @@ public class NuevoCliente implements WindowListener, ActionListener
 			dlgMensaje.setVisible(true);
 		}
 
-		else if (e.getSource().equals(btnCancelar))
+		else if (e.getSource().equals(btnLimpiar))
 		{ // Se borra todo lo que has introducido y se pone el cursor en txtNombre
 			txtNombre.setText("");
 			txtApellido1.setText("");

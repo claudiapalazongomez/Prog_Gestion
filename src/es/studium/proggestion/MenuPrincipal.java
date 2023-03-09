@@ -166,5 +166,41 @@ public class MenuPrincipal implements ActionListener, WindowListener
 			new NuevoCliente();
 		}
 		
+		//Listado cliente
+		else if(e.getSource().equals(mniClienteListado)) {
+			new ListadoClientes();
+		}
+		
+		//Baja cliente
+		else if(e.getSource().equals(mniClienteBaja)) {
+			new BajaCliente();
+		}
+		
+		//Modificar cliente
+		else if(e.getSource().equals(mniClienteModificar)) {
+			new ModificarCliente();
+		}
+		
+								/*PROVEEDORES*/
+		//Nuevo proveedor
+		else if(e.getSource().equals(mniProveedorNuevo)) {
+			new NuevoProveedor();
+		}
+		
+		//Listado proveedor
+		else if(e.getSource().equals(mniProveedorListado)) {
+			new ListadoProveedores();
+		}
+		
+		//Baja proveedor
+		else if(e.getSource().equals(mniProveedorBaja)) {
+			new BajaProveedor();
+		}
+		
+		//Modificar proveedor
+		else if(e.getSource().equals(mniProveedorModificar)) {
+			new ModificarProveedor();
+		}
+		
 	}
 }

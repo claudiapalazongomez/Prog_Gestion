@@ -203,11 +203,239 @@ public class Conexion
 	        statement.setString(2, email); //? = segunda variable que es el correo
 	        // Ejecutar la sentencia SQL y obtener el resultado
 	        ResultSet rs = statement.executeQuery();
-	        rs.next();
-	        return true; // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
+	        return rs.next(); // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
+	        //rs.next() devuelve true si el ResultSet contiene al menos un registro duplicado
 	    } catch (SQLException sqle) {
 	        System.out.println("Error 11-" + sqle.getMessage());
 	        return false;
 	    }
 	}
+
+	public void rellenarListadoClientes(TextArea txaListado)
+	{
+		String sentencia = "SELECT * FROM clientes;";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			while(resultado.next()) {
+				txaListado.append(resultado.getString("idCliente")+" "); 
+				txaListado.append(resultado.getString("nombreCliente")+" ");
+				txaListado.append(resultado.getString("primerApellidoCliente")+" ");
+				txaListado.append(resultado.getString("segundoApellidoCliente")+" ");
+				txaListado.append(resultado.getString("dniCliente")+" ");
+				txaListado.append(resultado.getString("emailCliente")+"\n");
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 12-"+sqle.getMessage());
+		}
+		
+	}
+	
+	public void rellenarChoiceClientes(Choice choClientes)
+	{
+		String sentencia = "SELECT idCliente, nombreCliente, dniCliente FROM clientes ORDER BY 1;";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			choClientes.add("Elegir cliente...");
+			while(resultado.next()) {
+				choClientes.add(resultado.getString("idCliente")+"-"+resultado.getString("nombreCliente")
+				+"-"+resultado.getString("dniCliente")); 
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 13-"+sqle.getMessage());
+		}	
+		
+	}
+
+	public int eliminarCliente(String idCliente)
+	{
+		String sentencia = "DELETE FROM clientes WHERE idCliente = " + idCliente;
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			statement.executeUpdate(sentencia);
+			return 0; 
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 14-"+sqle.getMessage());
+			return 1;
+		}
+	}
+	
+	public String getDatosEdicion2(String idCliente)
+	{
+		String resultado = "";
+		String sentencia = "SELECT * FROM clientes WHERE idCliente = " + idCliente;
+		try
+		{
+			// Crear una sentencia
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			// Crear un objeto ResultSet para guardar lo obtenido
+			// y ejecutar la sentencia SQL
+			ResultSet resultSet = statement.executeQuery(sentencia);
+			resultSet.next();
+			resultado =(resultSet.getString("idCliente")+"-"+resultSet.getString("nombreCliente")+"-"
+			+resultSet.getString("primerApellidoCliente")+"-"+resultSet.getString("segundoApellidoCliente")
+			+"-"+resultSet.getString("dniCliente")+"-"+resultSet.getString("emailCliente"));
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 15-"+sqle.getMessage());
+		}
+		return resultado;
+	}
+
+	public int modificarCliente(String sentencia)
+	{
+		try
+		{
+			// Crear una sentencia
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			// Ejecutar la sentencia SQL
+			statement.executeUpdate(sentencia);
+			return 0;
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 16-"+sqle.getMessage());
+			return 1;
+		}
+	}
+	
+	/*PROVEEDORES*/
+	public int altaProveedor(String sentencia)
+	{
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			statement.executeUpdate(sentencia);
+			return 0; //si todo va bien
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 17-"+sqle.getMessage());
+			return 1;
+		}
+	}
+
+	public boolean verificarCamposUnicos1(String telefono)
+	{
+		String cadena = "SELECT telefonoProveedor FROM proveedores WHERE telefonoProveedor = ?"; 
+	    try {
+	        // Preparar la sentencia SQL
+	        PreparedStatement statement = connection.prepareStatement(cadena); //evitar inyecciones sql ya que solo prueba lo que valga string cadena
+	        statement.setString(1, telefono); //? = primera variable que es el dni
+	        // Ejecutar la sentencia SQL y obtener el resultado
+	        ResultSet rs = statement.executeQuery();
+	        return rs.next(); // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
+	        //rs.next() devuelve true si el ResultSet contiene al menos un registro duplicado
+	    } catch (SQLException sqle) {
+	        System.out.println("Error 18-" + sqle.getMessage());
+	        return false;
+	    }
+	}
+
+	public void rellenarListadoProveedores(TextArea txaListado)
+	{
+		String sentencia = "SELECT * FROM proveedores;";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			while(resultado.next()) {
+				txaListado.append(resultado.getString("idProveedor")+" "); 
+				txaListado.append(resultado.getString("nombreProveedor")+" ");
+				txaListado.append(resultado.getString("direccionProveedor")+" ");
+				txaListado.append(resultado.getString("telefonoProveedor")+"\n");
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 19-"+sqle.getMessage());
+		}
+		
+	}
+
+	public void rellenarChoiceProveedores(Choice choProveedores)
+	{
+		String sentencia = "SELECT idProveedor, nombreProveedor, telefonoProveedor FROM proveedores ORDER BY 1;";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			choProveedores.add("Elegir proveedor...");
+			while(resultado.next()) {
+				choProveedores.add(resultado.getString("idProveedor")+"-"+resultado.getString("nombreProveedor")
+				+"-"+resultado.getString("telefonoProveedor")); 
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 20-"+sqle.getMessage());
+		}	
+		
+	}
+
+	public int eliminarProveedor(String idProveedor)
+	{
+		String sentencia = "DELETE FROM proveedores WHERE idProveedor = " + idProveedor;
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			statement.executeUpdate(sentencia);
+			return 0; 
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 21-"+sqle.getMessage());
+			return 1;
+		}
+	}
+
+	public String getDatosEdicion3(String idProveedor)
+	{
+		String resultado = "";
+		String sentencia = "SELECT * FROM proveedores WHERE idProveedor = " + idProveedor;
+		try
+		{
+			// Crear una sentencia
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			// Crear un objeto ResultSet para guardar lo obtenido
+			// y ejecutar la sentencia SQL
+			ResultSet resultSet = statement.executeQuery(sentencia);
+			resultSet.next();
+			resultado =(resultSet.getString("idProveedor")+"-"+resultSet.getString("nombreProveedor")+"-"
+			+resultSet.getString("direccionProveedor")+"-"+resultSet.getString("telefonoProveedor"));
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 22-"+sqle.getMessage());
+		}
+		return resultado;
+	}
+
+	public int modificarProveedor(String sentencia)
+	{
+		try
+		{
+			// Crear una sentencia
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			// Ejecutar la sentencia SQL
+			statement.executeUpdate(sentencia);
+			return 0;
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 23-"+sqle.getMessage());
+			return 1;
+		}
+	}
+	
+	
+	
 }
