@@ -131,7 +131,7 @@ public class ModificarProveedor implements WindowListener, ActionListener
 		else if(e.getSource().equals(btnModificar))
 		{
 			dlgMensaje.setLayout(new FlowLayout());
-			dlgMensaje.setSize(220,220);
+			dlgMensaje.setSize(220,250);
 			dlgMensaje.addWindowListener(this);
 			
 			if(txtNombre.getText().length()==0||txtDireccion.getText().length()==0||txtTelefono.getText().length()==0)
@@ -149,6 +149,9 @@ public class ModificarProveedor implements WindowListener, ActionListener
 				{
 					// Mostrar Mensaje Error
 					lblMensaje.setText("Error en Modificación");
+				}
+				else {
+					lblMensaje.setText("Modificación Correcta");
 				}
 			}
 

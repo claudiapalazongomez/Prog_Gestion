@@ -71,6 +71,23 @@ public class Conexion
 	}
 	
 	/*USUARIOS*/
+	
+	public boolean verificarCamposUnicos0(String nombreUsuario)
+	{
+		String cadena = "SELECT nombreUsuario FROM usuarios WHERE nombreUsuario = ?"; 
+	    try {
+	        // Preparar la sentencia SQL
+	        PreparedStatement statement = connection.prepareStatement(cadena); //evitar inyecciones sql ya que solo prueba lo que valga string cadena
+	        statement.setString(1, nombreUsuario); //? = primera variable que es el dni
+	        // Ejecutar la sentencia SQL y obtener el resultado
+	        ResultSet rs = statement.executeQuery();
+	        return rs.next(); // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
+	        //rs.next() devuelve true si el ResultSet contiene al menos un registro duplicado
+	    } catch (SQLException sqle) {
+	        System.out.println("Error 4-" + sqle.getMessage());
+	        return false;
+	    }
+	}	
 
 	public int altaUsuario(String sentencia)
 	{
@@ -81,7 +98,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 4-"+sqle.getMessage());
+			System.out.println("Error 5-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -101,7 +118,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 5-"+sqle.getMessage());
+			System.out.println("Error 6-"+sqle.getMessage());
 		}
 		
 	}
@@ -120,7 +137,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 6-"+sqle.getMessage());
+			System.out.println("Error 7-"+sqle.getMessage());
 		}	
 	}
 
@@ -134,7 +151,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 7-"+sqle.getMessage());
+			System.out.println("Error 8-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -156,7 +173,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 8-"+sqle.getMessage());
+			System.out.println("Error 9-"+sqle.getMessage());
 		}
 		return resultado;
 	}
@@ -173,7 +190,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 9-"+sqle.getMessage());
+			System.out.println("Error 10-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -189,7 +206,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 10-"+sqle.getMessage());
+			System.out.println("Error 11-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -206,7 +223,7 @@ public class Conexion
 	        return rs.next(); // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
 	        //rs.next() devuelve true si el ResultSet contiene al menos un registro duplicado
 	    } catch (SQLException sqle) {
-	        System.out.println("Error 11-" + sqle.getMessage());
+	        System.out.println("Error 12-" + sqle.getMessage());
 	        return false;
 	    }
 	}
@@ -229,7 +246,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 12-"+sqle.getMessage());
+			System.out.println("Error 13-"+sqle.getMessage());
 		}
 		
 	}
@@ -249,7 +266,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 13-"+sqle.getMessage());
+			System.out.println("Error 14-"+sqle.getMessage());
 		}	
 		
 	}
@@ -264,7 +281,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 14-"+sqle.getMessage());
+			System.out.println("Error 15-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -287,7 +304,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 15-"+sqle.getMessage());
+			System.out.println("Error 16-"+sqle.getMessage());
 		}
 		return resultado;
 	}
@@ -304,7 +321,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 16-"+sqle.getMessage());
+			System.out.println("Error 17-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -319,7 +336,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 17-"+sqle.getMessage());
+			System.out.println("Error 18-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -336,7 +353,7 @@ public class Conexion
 	        return rs.next(); // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
 	        //rs.next() devuelve true si el ResultSet contiene al menos un registro duplicado
 	    } catch (SQLException sqle) {
-	        System.out.println("Error 18-" + sqle.getMessage());
+	        System.out.println("Error 19-" + sqle.getMessage());
 	        return false;
 	    }
 	}
@@ -357,7 +374,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 19-"+sqle.getMessage());
+			System.out.println("Error 20-"+sqle.getMessage());
 		}
 		
 	}
@@ -377,7 +394,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 20-"+sqle.getMessage());
+			System.out.println("Error 21-"+sqle.getMessage());
 		}	
 		
 	}
@@ -392,7 +409,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 21-"+sqle.getMessage());
+			System.out.println("Error 22-"+sqle.getMessage());
 			return 1;
 		}
 	}
@@ -414,7 +431,7 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 22-"+sqle.getMessage());
+			System.out.println("Error 23-"+sqle.getMessage());
 		}
 		return resultado;
 	}
@@ -431,11 +448,9 @@ public class Conexion
 		}
 		catch (SQLException sqle)
 		{
-			System.out.println("Error 23-"+sqle.getMessage());
+			System.out.println("Error 24-"+sqle.getMessage());
 			return 1;
 		}
 	}
-	
-	
-	
+
 }

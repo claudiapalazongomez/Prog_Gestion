@@ -117,7 +117,7 @@ public class NuevoCliente implements WindowListener, ActionListener
 			
 			 
 			else if(conexion.verificarCamposUnicos(txtDni.getText(), txtCorreo.getText())== true){ //enviamos el dni y el correo al método
-				lblMensaje.setText("El DNI o el correo están duplicados");
+				lblMensaje.setText("Este DNI o este correo ya existen");
 			}
 			
 			
@@ -132,6 +132,9 @@ public class NuevoCliente implements WindowListener, ActionListener
 			{
 				// Mostrar mensaje OK
 				lblMensaje.setText("Error en Alta");
+			}
+			else {
+				lblMensaje.setText("Alta Correcta");
 			}
 			}
 			dlgMensaje.add(lblMensaje);

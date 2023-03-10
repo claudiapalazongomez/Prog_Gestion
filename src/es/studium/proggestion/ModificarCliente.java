@@ -161,6 +161,9 @@ public class ModificarCliente implements WindowListener, ActionListener
 					// Mostrar Mensaje Error
 					lblMensaje.setText("Error en Modificación");
 				}
+				else {
+					lblMensaje.setText("Modificación Correcta");
+				}
 			}
 
 			dlgMensaje.add(lblMensaje);

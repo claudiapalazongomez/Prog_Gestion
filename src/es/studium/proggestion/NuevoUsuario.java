@@ -118,6 +118,11 @@ public class NuevoUsuario implements WindowListener, ActionListener
 			else if(!txtClave.getText().equals(txtClaveRepetir.getText())) {
 				lblMensaje.setText("Las claves no coinciden");
 			}
+			
+			else if(conexion.verificarCamposUnicos0(txtNombre.getText())== true){ //enviamos el dni y el correo al método
+				lblMensaje.setText("Este nombre de usuario ya existe");
+			}
+			
 			else {
 			// Dar de alta
 			String sentencia = "INSERT INTO usuarios VALUES (null, '" + txtNombre.getText() + "', SHA2('"
@@ -128,6 +133,9 @@ public class NuevoUsuario implements WindowListener, ActionListener
 			{
 				// Mostrar mensaje OK
 				lblMensaje.setText("Error en Alta");
+			}
+			else {
+				lblMensaje.setText("Alta Correcta");
 			}
 			}
 			dlgMensaje.add(lblMensaje);

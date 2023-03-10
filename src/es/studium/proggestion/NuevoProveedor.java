@@ -109,7 +109,7 @@ public class NuevoProveedor implements WindowListener, ActionListener
 			
 			 
 			else if(conexion.verificarCamposUnicos1(txtTelefono.getText())== true){ //enviamos el dni y el correo al método
-				lblMensaje.setText("El DNI o el correo están duplicados");
+				lblMensaje.setText("Este teléfono ya existe");
 			}
 			
 			
@@ -123,6 +123,9 @@ public class NuevoProveedor implements WindowListener, ActionListener
 			{
 				// Mostrar mensaje OK
 				lblMensaje.setText("Error en Alta");
+			}
+			else {
+				lblMensaje.setText("Alta Correcta");
 			}
 			}
 			dlgMensaje.add(lblMensaje);
