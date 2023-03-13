@@ -23,7 +23,7 @@ Frame menuBajaCliente = new Frame("Baja Cliente");
 	Button btnSi = new Button("Si");
 	Button btnNo = new Button("No");
 	Dialog dlgMensaje = new Dialog(menuBajaCliente, "Mensaje", true);
-	Label lblMensaje = new Label("Usuario Eliminado");
+	Label lblMensaje = new Label("Cliente Eliminado");
 	
 	Conexion conexion = new Conexion();
 	

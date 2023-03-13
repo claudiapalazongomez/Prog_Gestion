@@ -19,7 +19,7 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	Menu menuUsuario = new Menu("Usuarios");
 	Menu menuArticulos = new Menu("Artículos");
 	Menu menuClientes = new Menu("Clientes");
-	Menu menuComprar = new Menu("Comprar");
+	Menu menuComprar = new Menu("Compras");
 	Menu menuProveedores = new Menu("Proveedores");
 	
 	MenuItem mniUsuarioNuevo = new MenuItem("Nuevo");
@@ -84,14 +84,14 @@ public class MenuPrincipal implements ActionListener, WindowListener
 			menuClientes.add(mniClienteModificar);
 		}
 		
-		/*mniComprarNuevo.addActionListener(this);
+		mniComprarNuevo.addActionListener(this);
 		mniComprarListado.addActionListener(this);
 		mniComprarBaja.addActionListener(this);
 		menuComprar.add(mniComprarNuevo);
 		if(tipoUsuario==0) {
 			menuComprar.add(mniComprarListado);
 			menuComprar.add(mniComprarBaja);
-		}*/
+		}
 		
 		mniProveedorNuevo.addActionListener(this);
 		mniProveedorListado.addActionListener(this);
@@ -107,7 +107,7 @@ public class MenuPrincipal implements ActionListener, WindowListener
 		barraMenu.add(menuUsuario);
 		barraMenu.add(menuArticulos);
 		barraMenu.add(menuClientes);
-		//barraMenu.add(menuComprar);
+		barraMenu.add(menuComprar);
 		barraMenu.add(menuProveedores);
 		
 		

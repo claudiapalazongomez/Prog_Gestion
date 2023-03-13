@@ -50,7 +50,7 @@ Frame menuBajaUsuario = new Frame("Baja Usuario");
 		if(e.getSource().equals(btnEliminar)) {
 			if(choUsuarios.getSelectedIndex()!=0){ //Si es Elegir usuario... no hace nada al ser el 0
 				dlgSeguro.setLayout(new FlowLayout());
-				dlgSeguro.setSize(200, 200);
+				dlgSeguro.setSize(220, 200);
 				dlgSeguro.addWindowListener(this);
 				
 				lblConfirmar.setText("¿Seguro de eliminar "+choUsuarios.getSelectedItem()+"?");

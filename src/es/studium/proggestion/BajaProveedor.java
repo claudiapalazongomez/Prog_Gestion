@@ -13,9 +13,9 @@ import java.awt.event.WindowListener;
 
 public class BajaProveedor implements WindowListener, ActionListener
 {
-Frame menuBajaProveedor = new Frame("Baja Cliente");
+Frame menuBajaProveedor = new Frame("Baja Proveedor");
 	
-	Label lblElegir = new Label("Elegir el cliente a Eliminar:");
+	Label lblElegir = new Label("Elegir el proveedor a Eliminar:");
 	Choice choProveedores = new Choice();
 	Button btnEliminar = new Button("Eliminar");
 	Dialog dlgSeguro = new Dialog(menuBajaProveedor, "¿Segur@?", true);
@@ -23,7 +23,7 @@ Frame menuBajaProveedor = new Frame("Baja Cliente");
 	Button btnSi = new Button("Si");
 	Button btnNo = new Button("No");
 	Dialog dlgMensaje = new Dialog(menuBajaProveedor, "Mensaje", true);
-	Label lblMensaje = new Label("Usuario Eliminado");
+	Label lblMensaje = new Label("Proveedor Eliminado");
 	
 	Conexion conexion = new Conexion();
 	
