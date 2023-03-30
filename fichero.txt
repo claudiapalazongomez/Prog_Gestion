@@ -1,0 +1,6 @@
+[30/03/2023 21:17:05][admin]Login exitoso
+[30/03/2023 21:17:22][borja]Login exitoso
+[30/03/2023 21:18:21][borja]INSERT INTO clientes VALUES (null, 'Keyla', 'Tejera', 'Luján', '11992288U', 'keyla@gmail.com');
+[30/03/2023 21:21:29][admin]Login exitoso
+[30/03/2023 21:22:55][rakan]Login exitoso
+[30/03/2023 21:22:58][rakan]Cierra login

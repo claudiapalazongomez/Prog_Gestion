@@ -2,12 +2,18 @@ package es.studium.proggestion;
 
 import java.awt.Choice;
 import java.awt.TextArea;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Conexion
 {
@@ -16,6 +22,7 @@ public class Conexion
 	String login = "userTiendaRopa";
 	String password = "Studium2023;";
 	String sentencia = "";
+	// String nombreUsuario; // LOG
 
 	Connection connection = null; //para conectarnos a la BD
 	Statement statement = null; //para lanzar o ejecutar una sentencia de la BD
@@ -50,6 +57,7 @@ public class Conexion
 	public int comprobarCredenciales(String usuario, String clave)
 	{
 		String cadena = "SELECT * FROM usuarios WHERE nombreUsuario = '" + usuario + "' AND claveUsuario = SHA2('" + clave + "',256);"; //se indica con SHA2 256 la encriptación de la clave (en este caso)
+		String entrada = "Login exitoso";
 		try {
 			// Crear una sentencia
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); //permirte moverse hacia delante y hacia atrás con una visión dinámica de los datos. no permite actualización del contenido del ResultSet
@@ -57,6 +65,7 @@ public class Conexion
 			// y ejecutar la sentencia SQL
 			rs = statement.executeQuery(cadena); 
 			if(rs.next()) { //para que salte al primer elemento porque el primero es BOR(null)
+				apunteLog(usuario, entrada);
 				return rs.getInt("tipoUsuario"); //si las credenciales son correctas (1)
 			}
 			else {
@@ -78,7 +87,7 @@ public class Conexion
 	    try {
 	        // Preparar la sentencia SQL
 	        PreparedStatement statement = connection.prepareStatement(cadena); //evitar inyecciones sql ya que solo prueba lo que valga string cadena
-	        statement.setString(1, nombreUsuario); //? = primera variable que es el dni
+	        statement.setString(1, nombreUsuario); //? = primera variable 
 	        // Ejecutar la sentencia SQL y obtener el resultado
 	        ResultSet rs = statement.executeQuery();
 	        return rs.next(); // devuelve verdadero si hay al menos un registro que coincida, falso si no hay ninguno
@@ -91,9 +100,10 @@ public class Conexion
 
 	public int altaUsuario(String sentencia)
 	{
-		try {
+		try {		
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0; //si todo va bien
 		}
 		catch (SQLException sqle)
@@ -106,10 +116,12 @@ public class Conexion
 	public void rellenarListadoUsuarios(TextArea txaListado)
 	{
 		String sentencia = "SELECT idUsuario, nombreUsuario, emailUsuario FROM usuarios;";
+		String cadena = "Accede al listado de Usuarios";
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			// En resultado metemos todo lo que queremos almacenar en sentencia
 			ResultSet resultado = statement.executeQuery(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, cadena);
 			while(resultado.next()) {
 				txaListado.append(resultado.getString("idUsuario")+" "); 
 				txaListado.append(resultado.getString("nombreUsuario")+" ");
@@ -147,6 +159,7 @@ public class Conexion
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0; 
 		}
 		catch (SQLException sqle)
@@ -186,6 +199,7 @@ public class Conexion
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			// Ejecutar la sentencia SQL
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0;
 		}
 		catch (SQLException sqle)
@@ -202,6 +216,7 @@ public class Conexion
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0; //si todo va bien
 		}
 		catch (SQLException sqle)
@@ -231,10 +246,12 @@ public class Conexion
 	public void rellenarListadoClientes(TextArea txaListado)
 	{
 		String sentencia = "SELECT * FROM clientes;";
+		String cadena = "Accede al listado de Clientes";
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			// En resultado metemos todo lo que queremos almacenar en sentencia
 			ResultSet resultado = statement.executeQuery(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, cadena);
 			while(resultado.next()) {
 				txaListado.append(resultado.getString("idCliente")+" "); 
 				txaListado.append(resultado.getString("nombreCliente")+" ");
@@ -277,6 +294,7 @@ public class Conexion
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0; 
 		}
 		catch (SQLException sqle)
@@ -317,6 +335,7 @@ public class Conexion
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			// Ejecutar la sentencia SQL
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0;
 		}
 		catch (SQLException sqle)
@@ -332,6 +351,7 @@ public class Conexion
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0; //si todo va bien
 		}
 		catch (SQLException sqle)
@@ -361,10 +381,12 @@ public class Conexion
 	public void rellenarListadoProveedores(TextArea txaListado)
 	{
 		String sentencia = "SELECT * FROM proveedores;";
+		String cadena = "Accede al listado de Proveedores";
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			// En resultado metemos todo lo que queremos almacenar en sentencia
 			ResultSet resultado = statement.executeQuery(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, cadena);
 			while(resultado.next()) {
 				txaListado.append(resultado.getString("idProveedor")+" "); 
 				txaListado.append(resultado.getString("nombreProveedor")+" ");
@@ -405,6 +427,7 @@ public class Conexion
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0; 
 		}
 		catch (SQLException sqle)
@@ -444,12 +467,32 @@ public class Conexion
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			// Ejecutar la sentencia SQL
 			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
 			return 0;
 		}
 		catch (SQLException sqle)
 		{
 			System.out.println("Error 24-"+sqle.getMessage());
 			return 1;
+		}
+	}
+	
+	public void apunteLog(String usuario, String cadena) {
+		Date fechaHoraActual = new Date();
+		SimpleDateFormat formatoEuropeo = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		String fechaFormatoEU = formatoEuropeo.format(fechaHoraActual);
+		try {
+		FileWriter fw = new FileWriter("fichero.txt", true);
+		BufferedWriter bw = new BufferedWriter(fw); 
+		PrintWriter salida = new PrintWriter(bw);
+		salida.println("[" + fechaFormatoEU + "][" + usuario + "]" + cadena);
+		System.out.println("Información almacenada");
+		salida.close(); 
+		bw.close();
+		fw.close();
+		}
+		catch(IOException ioe) {
+			System.out.println("Error en Fichero");
 		}
 	}
 

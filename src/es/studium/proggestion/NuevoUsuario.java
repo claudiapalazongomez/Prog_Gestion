@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-
 public class NuevoUsuario implements WindowListener, ActionListener
 {
 	Frame menuNuevoUsuario = new Frame("Nuevo Usuario");

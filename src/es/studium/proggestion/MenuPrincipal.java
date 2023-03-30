@@ -45,10 +45,15 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	MenuItem mniProveedorBaja = new MenuItem("Baja");
 	MenuItem mniProveedorModificar = new MenuItem("Modificar");
 	
-	int tipoUsuario;
+	Conexion conexion = new Conexion();
+	String cadena = "Cierra login";
 	
-	MenuPrincipal(int t){
+	int tipoUsuario;
+	static String nombreUsuario; 
+	
+	MenuPrincipal(String usuario, int t){
 		tipoUsuario = t;
+		nombreUsuario = usuario; 
 		menuPrincipal.setLayout(new FlowLayout());
 		menuPrincipal.addWindowListener(this);
 		menuPrincipal.setMenuBar(barraMenu);
@@ -122,7 +127,8 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	{}
 	public void windowClosing(WindowEvent e)
 	{
-		System.exit(0);	
+		conexion.apunteLog(nombreUsuario, cadena);
+		System.exit(0);
 	}
 	public void windowClosed(WindowEvent e)
 	{}

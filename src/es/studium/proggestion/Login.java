@@ -56,7 +56,6 @@ public class Login implements WindowListener, ActionListener
 	{
 		if(dlgMensaje.isActive()) { 
 			dlgMensaje.setVisible(false); 
-			//se utiliza para asegurarse de que el diálogo no se cierre cuando se cierra la ventana principal
 		}
 		else {
 			System.exit(0);
@@ -85,7 +84,7 @@ public class Login implements WindowListener, ActionListener
 			
 			//Credenciales correctas 
 			if(tipoUsuario!=-1) {  
-				new MenuPrincipal(tipoUsuario);
+				new MenuPrincipal(usuario, tipoUsuario); 
 				ventanaLogin.setVisible(false);
 			}
 			//Credenciales incorrectas
