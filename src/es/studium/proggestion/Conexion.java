@@ -123,8 +123,8 @@ public class Conexion
 			ResultSet resultado = statement.executeQuery(sentencia);
 			apunteLog(MenuPrincipal.nombreUsuario, cadena);
 			while(resultado.next()) {
-				txaListado.append(resultado.getString("idUsuario")+" "); 
-				txaListado.append(resultado.getString("nombreUsuario")+" ");
+				txaListado.append(resultado.getString("idUsuario")+" - "); 
+				txaListado.append(resultado.getString("nombreUsuario")+" - ");
 				txaListado.append(resultado.getString("emailUsuario")+"\n");
 			}
 		}
@@ -253,11 +253,11 @@ public class Conexion
 			ResultSet resultado = statement.executeQuery(sentencia);
 			apunteLog(MenuPrincipal.nombreUsuario, cadena);
 			while(resultado.next()) {
-				txaListado.append(resultado.getString("idCliente")+" "); 
-				txaListado.append(resultado.getString("nombreCliente")+" ");
-				txaListado.append(resultado.getString("primerApellidoCliente")+" ");
-				txaListado.append(resultado.getString("segundoApellidoCliente")+" ");
-				txaListado.append(resultado.getString("dniCliente")+" ");
+				txaListado.append(resultado.getString("idCliente")+" - "); 
+				txaListado.append(resultado.getString("nombreCliente")+" - ");
+				txaListado.append(resultado.getString("primerApellidoCliente")+" - ");
+				txaListado.append(resultado.getString("segundoApellidoCliente")+" - ");
+				txaListado.append(resultado.getString("dniCliente")+" - ");
 				txaListado.append(resultado.getString("emailCliente")+"\n");
 			}
 		}
@@ -388,9 +388,9 @@ public class Conexion
 			ResultSet resultado = statement.executeQuery(sentencia);
 			apunteLog(MenuPrincipal.nombreUsuario, cadena);
 			while(resultado.next()) {
-				txaListado.append(resultado.getString("idProveedor")+" "); 
-				txaListado.append(resultado.getString("nombreProveedor")+" ");
-				txaListado.append(resultado.getString("direccionProveedor")+" ");
+				txaListado.append(resultado.getString("idProveedor")+" - "); 
+				txaListado.append(resultado.getString("nombreProveedor")+" - ");
+				txaListado.append(resultado.getString("direccionProveedor")+" - ");
 				txaListado.append(resultado.getString("telefonoProveedor")+"\n");
 			}
 		}

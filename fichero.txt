@@ -4,3 +4,45 @@
 [30/03/2023 21:21:29][admin]Login exitoso
 [30/03/2023 21:22:55][rakan]Login exitoso
 [30/03/2023 21:22:58][rakan]Cierra login
+[10/04/2023 11:57:02][admin]Login exitoso
+[10/04/2023 11:57:15][admin]Cierra login
+[10/04/2023 11:57:35][admin]Login exitoso
+[10/04/2023 11:57:37][admin]Accede al listado de Clientes
+[10/04/2023 11:57:39][admin]Cierra login
+[15/05/2023 21:02:20][admin]Login exitoso
+[15/05/2023 21:02:27][admin]Accede al listado de Clientes
+[15/05/2023 21:03:45][admin]Cierra login
+[15/05/2023 21:05:04][admin]Login exitoso
+[15/05/2023 21:05:07][admin]Accede al listado de Clientes
+[15/05/2023 21:05:28][admin]Cierra login
+[15/05/2023 21:05:47][admin]Login exitoso
+[15/05/2023 21:05:50][admin]Accede al listado de Clientes
+[15/05/2023 21:06:07][admin]Cierra login
+[15/05/2023 21:23:11][admin]Login exitoso
+[15/05/2023 21:23:14][admin]Accede al listado de Usuarios
+[15/05/2023 21:23:44][admin]Login exitoso
+[15/05/2023 21:23:46][admin]Accede al listado de Usuarios
+[15/05/2023 21:24:00][admin]Cierra login
+[15/05/2023 21:28:24][admin]Login exitoso
+[15/05/2023 21:28:26][admin]Accede al listado de Proveedores
+[15/05/2023 21:28:51][admin]Cierra login
+[15/05/2023 21:42:07][admin]Login exitoso
+[15/05/2023 21:42:10][admin]Accede al listado de Proveedores
+[15/05/2023 21:42:38][admin]Cierra login
+[15/05/2023 21:43:24][admin]Login exitoso
+[15/05/2023 21:43:28][admin]Accede al listado de Proveedores
+[15/05/2023 21:43:47][admin]Cierra login
+[15/05/2023 21:47:33][admin]Login exitoso
+[15/05/2023 21:47:35][admin]Accede al listado de Proveedores
+[15/05/2023 21:48:37][admin]Cierra login
+[15/05/2023 22:00:48][admin]Login exitoso
+[15/05/2023 22:00:51][admin]Accede al listado de Proveedores
+[15/05/2023 22:04:31][admin]Accede al listado de Usuarios
+[15/05/2023 22:19:34][admin]Login exitoso
+[15/05/2023 22:19:37][admin]Accede al listado de Proveedores
+[15/05/2023 22:19:54][admin]Cierra login
+[15/05/2023 22:21:42][admin]Cierra login
+[15/05/2023 22:21:50][admin]Login exitoso
+[15/05/2023 22:21:54][admin]Accede al listado de Usuarios
+[15/05/2023 22:24:08][admin]Accede al listado de Proveedores
+[15/05/2023 22:26:24][admin]Cierra login
