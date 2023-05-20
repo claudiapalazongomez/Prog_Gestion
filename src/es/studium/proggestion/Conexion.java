@@ -477,6 +477,115 @@ public class Conexion
 		}
 	}
 	
+	/*ARTÍCULOS*/
+	public int altaArticulo(String sentencia)
+	{
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
+			return 0; //si todo va bien
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 25-"+sqle.getMessage());
+			return 1;
+		}
+	}
+	
+	public void rellenarListadoArticulo(TextArea txaListado)
+	{
+		String sentencia = "SELECT idArticulo, colorArticulo, stockArticulo, referenciaArticulo, descuentoArticulo, precioArticulo, DATE_FORMAT(fechaCompraArticulo, \"%d/%m/%Y\") as 'Fecha Compra', trackCodeArticulo, idProveedorFK "
+				+ "FROM articulos "
+				+ "JOIN proveedores ON articulos.idProveedorFK = proveedores.idProveedor;";
+		String cadena = "Accede al listado de Artículos";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, cadena);
+			while(resultado.next()) {
+			    txaListado.append(resultado.getString("idArticulo") + " - "); 
+			    txaListado.append(resultado.getString("colorArticulo") + " - ");
+			    txaListado.append(resultado.getString("stockArticulo") + " - ");
+			    txaListado.append(resultado.getString("referenciaArticulo") + " - ");
+			    txaListado.append(resultado.getString("descuentoArticulo") + " - ");
+			    txaListado.append(resultado.getString("precioArticulo") + " - ");
+			    txaListado.append(resultado.getString("Fecha Compra") + " - ");
+			    txaListado.append(resultado.getString("trackCodeArticulo") + " - ");
+			    txaListado.append(resultado.getString("idProveedorFK") + "\n");
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 26-"+sqle.getMessage());
+		}
+		
+	}
+	
+	/*COMPRAS*/
+	public void rellenarChoiceArticulos(Choice choIDArticulo)
+	{
+		String sentencia = "SELECT idArticulo, referenciaArticulo FROM articulos ORDER BY 1;";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			choIDArticulo.add("Elegir artículo...");
+			while(resultado.next()) {
+				choIDArticulo.add(resultado.getString("idArticulo")+"-"+resultado.getString("referenciaArticulo")); 
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 27-"+sqle.getMessage());
+		}	
+		
+	}
+	
+	public int altaCompra(String sentencia)
+	{
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			statement.executeUpdate(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, sentencia);
+			return 0; //si todo va bien
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 28-"+sqle.getMessage());
+			return 1;
+		}
+	}
+	
+	public void rellenarListadoCompra(TextArea txaListado)
+	{
+		String sentencia = "SELECT idComprar, DATE_FORMAT(fecha, \"%d/%m/%Y\") as 'Fecha', cantidad, idClienteFK, idArticuloFK "
+				+ "FROM comprar "
+				+ "JOIN clientes ON comprar.idClienteFK = clientes.idCliente "
+				+ "JOIN articulos ON comprar.idArticuloFK = articulos.idArticulo;";
+		String cadena = "Accede al listado de Compras";
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
+			// En resultado metemos todo lo que queremos almacenar en sentencia
+			ResultSet resultado = statement.executeQuery(sentencia);
+			apunteLog(MenuPrincipal.nombreUsuario, cadena);
+			while(resultado.next()) {
+			    txaListado.append(resultado.getString("idComprar") + " - "); 
+			    txaListado.append(resultado.getString("Fecha") + " - ");
+			    txaListado.append(resultado.getString("cantidad") + " - ");
+			    txaListado.append(resultado.getString("idClienteFK") + " - ");
+			    txaListado.append(resultado.getString("idArticuloFK") + "\n");
+			}
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error 29-"+sqle.getMessage());
+		}
+		
+	}
+	
+	/*FICHERO*/
 	public void apunteLog(String usuario, String cadena) {
 		Date fechaHoraActual = new Date();
 		SimpleDateFormat formatoEuropeo = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

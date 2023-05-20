@@ -1,7 +1,7 @@
 package es.studium.proggestion;
 
-import java.io.IOException;
 import java.awt.Button;
+import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.TextArea;
@@ -9,45 +9,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
+
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.io.font.constants.StandardFonts;
 
-public class ListadoClientes implements WindowListener, ActionListener
+public class ListadoArticulos implements WindowListener, ActionListener
 {
-	Frame menuClientesListado = new Frame("Listado Clientes");
+	Frame menuArticuloListado = new Frame("Listado Artículos");
 
 	TextArea txaListado = new TextArea(6, 25);
 	Button btnPdf = new Button("PDF");
 
 	Conexion conexion = new Conexion();
 
-	ListadoClientes()
+	ListadoArticulos()
 	{
-		menuClientesListado.setSize(300, 200);
-		menuClientesListado.setLayout(new FlowLayout());
-		menuClientesListado.addWindowListener(this);
+		menuArticuloListado.setSize(300, 200);
+		menuArticuloListado.setLayout(new FlowLayout());
+		menuArticuloListado.addWindowListener(this);
 
 		// Rellenar el TextArea
-		conexion.rellenarListadoClientes(txaListado);
+		conexion.rellenarListadoArticulo(txaListado);
 
-		menuClientesListado.add(txaListado);
-		menuClientesListado.add(btnPdf);
+		menuArticuloListado.add(txaListado);
+		menuArticuloListado.add(btnPdf);
 
 		btnPdf.addActionListener(this);
-		menuClientesListado.setLocationRelativeTo(null);
-		menuClientesListado.setResizable(false);
-		menuClientesListado.setVisible(true);
+		menuArticuloListado.setLocationRelativeTo(null);
+		menuArticuloListado.setResizable(false);
+		menuArticuloListado.setVisible(true);
 	}
 
 	@Override
@@ -56,7 +57,7 @@ public class ListadoClientes implements WindowListener, ActionListener
 		if (e.getSource().equals(btnPdf))
 		{
 
-		String dest = "Listado_Clientes.pdf";
+		String dest = "Listado_Artículos.pdf";
 
 		try
 		{
@@ -91,6 +92,7 @@ public class ListadoClientes implements WindowListener, ActionListener
 			table.addHeaderCell(new Cell().add(new Paragraph("Fecha de compra").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("Track code").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("ID Proveedor").setFont(fontHeader).setBold()));
+			
 
 			// Agregar datos a la tabla desde el TextArea
 			String[] lines = txaListado.getText().split("\n");
@@ -121,31 +123,27 @@ public class ListadoClientes implements WindowListener, ActionListener
 
 	@Override
 	public void windowOpened(WindowEvent e)
-	{
-	}
-
+	{}
+	@Override
 	public void windowClosing(WindowEvent e)
 	{
-		menuClientesListado.setVisible(false);
+		menuArticuloListado.setVisible(false);
+		
 	}
-
+	@Override
 	public void windowClosed(WindowEvent e)
-	{
-	}
-
+	{}
+	@Override
 	public void windowIconified(WindowEvent e)
-	{
-	}
-
+	{}
+	@Override
 	public void windowDeiconified(WindowEvent e)
-	{
-	}
-
+	{}
+	@Override
 	public void windowActivated(WindowEvent e)
-	{
-	}
-
+	{}
+	@Override
 	public void windowDeactivated(WindowEvent e)
-	{
-	}
+	{}
+
 }

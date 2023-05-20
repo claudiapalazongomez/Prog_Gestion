@@ -1,7 +1,7 @@
 package es.studium.proggestion;
 
-import java.io.IOException;
 import java.awt.Button;
+import java.awt.Desktop;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.TextArea;
@@ -9,54 +9,56 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
+
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.io.font.constants.StandardFonts;
 
-public class ListadoClientes implements WindowListener, ActionListener
+public class ListadoCompra implements WindowListener, ActionListener
 {
-	Frame menuClientesListado = new Frame("Listado Clientes");
+
+	Frame menuListadoCompra = new Frame("Listado Compras");
 
 	TextArea txaListado = new TextArea(6, 25);
 	Button btnPdf = new Button("PDF");
 
 	Conexion conexion = new Conexion();
 
-	ListadoClientes()
+	ListadoCompra()
 	{
-		menuClientesListado.setSize(300, 200);
-		menuClientesListado.setLayout(new FlowLayout());
-		menuClientesListado.addWindowListener(this);
+		menuListadoCompra.setSize(300, 200);
+		menuListadoCompra.setLayout(new FlowLayout());
+		menuListadoCompra.addWindowListener(this);
 
 		// Rellenar el TextArea
-		conexion.rellenarListadoClientes(txaListado);
+		conexion.rellenarListadoCompra(txaListado);
 
-		menuClientesListado.add(txaListado);
-		menuClientesListado.add(btnPdf);
+		menuListadoCompra.add(txaListado);
+		menuListadoCompra.add(btnPdf);
 
 		btnPdf.addActionListener(this);
-		menuClientesListado.setLocationRelativeTo(null);
-		menuClientesListado.setResizable(false);
-		menuClientesListado.setVisible(true);
+		menuListadoCompra.setLocationRelativeTo(null);
+		menuListadoCompra.setResizable(false);
+		menuListadoCompra.setVisible(true);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e)
-	{	
+	{
 		if (e.getSource().equals(btnPdf))
 		{
 
-		String dest = "Listado_Clientes.pdf";
+		String dest = "Listado_Compras.pdf";
 
 		try
 		{
@@ -78,20 +80,16 @@ public class ListadoClientes implements WindowListener, ActionListener
 
 			// Crear tabla y configurar anchos de columna
 			Table table = new Table(UnitValue.createPercentArray(new float[]
-			{ 1, 1, 1, 1, 1, 1, 1, 1, 1 }));
+			{ 1, 1, 1, 1, 1 }));
 			table.setWidth(UnitValue.createPercentValue(100));
 
 			// Agregar encabezados a la tabla
 			table.addHeaderCell(new Cell().add(new Paragraph("ID").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Color").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Stock").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Referencia").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Descuento").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Precio").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Fecha de compra").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Track code").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("ID Proveedor").setFont(fontHeader).setBold()));
-
+			table.addHeaderCell(new Cell().add(new Paragraph("Fecha").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Cantidad").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("ID Cliente").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("ID Artículo").setFont(fontHeader).setBold()));
+			
 			// Agregar datos a la tabla desde el TextArea
 			String[] lines = txaListado.getText().split("\n");
 			for (String line : lines)
@@ -116,36 +114,56 @@ public class ListadoClientes implements WindowListener, ActionListener
 			ioe.printStackTrace();
 		}
 		}
+		
 	}
-	
 
 	@Override
 	public void windowOpened(WindowEvent e)
 	{
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void windowClosing(WindowEvent e)
 	{
-		menuClientesListado.setVisible(false);
+		menuListadoCompra.setVisible(false);
+		
 	}
 
+	@Override
 	public void windowClosed(WindowEvent e)
 	{
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void windowIconified(WindowEvent e)
 	{
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void windowDeiconified(WindowEvent e)
 	{
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void windowActivated(WindowEvent e)
 	{
+		// TODO Auto-generated method stub
+		
 	}
 
+	@Override
 	public void windowDeactivated(WindowEvent e)
 	{
+		// TODO Auto-generated method stub
+		
 	}
+
 }

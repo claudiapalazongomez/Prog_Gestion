@@ -29,7 +29,6 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	
 	MenuItem mniArticuloNuevo = new MenuItem("Nuevo");
 	MenuItem mniArticuloListado = new MenuItem("Listado");
-	MenuItem mniArticuloBaja = new MenuItem("Baja");
 	
 	MenuItem mniClienteNuevo = new MenuItem("Nuevo");
 	MenuItem mniClienteListado = new MenuItem("Listado");
@@ -38,7 +37,6 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	
 	MenuItem mniComprarNuevo = new MenuItem("Nuevo");
 	MenuItem mniComprarListado = new MenuItem("Listado");
-	MenuItem mniComprarBaja = new MenuItem("Baja");
 	
 	MenuItem mniProveedorNuevo = new MenuItem("Nuevo");
 	MenuItem mniProveedorListado = new MenuItem("Listado");
@@ -71,11 +69,9 @@ public class MenuPrincipal implements ActionListener, WindowListener
 		
 		mniArticuloNuevo.addActionListener(this);
 		mniArticuloListado.addActionListener(this);
-		mniArticuloBaja.addActionListener(this);
 		menuArticulos.add(mniArticuloNuevo);
 		if(tipoUsuario==0) {
 			menuArticulos.add(mniArticuloListado);
-			menuArticulos.add(mniArticuloBaja);
 		}
 		
 		mniClienteNuevo.addActionListener(this);
@@ -91,11 +87,9 @@ public class MenuPrincipal implements ActionListener, WindowListener
 		
 		mniComprarNuevo.addActionListener(this);
 		mniComprarListado.addActionListener(this);
-		mniComprarBaja.addActionListener(this);
 		menuComprar.add(mniComprarNuevo);
 		if(tipoUsuario==0) {
 			menuComprar.add(mniComprarListado);
-			menuComprar.add(mniComprarBaja);
 		}
 		
 		mniProveedorNuevo.addActionListener(this);
@@ -208,5 +202,26 @@ public class MenuPrincipal implements ActionListener, WindowListener
 			new ModificarProveedor();
 		}
 		
+								/*ARTICULOS*/
+		//Nuevo articulo	
+		else if(e.getSource().equals(mniArticuloNuevo)) {
+			new NuevoArticulo();
+		}
+		
+		//Listado articulo	
+		else if(e.getSource().equals(mniArticuloListado)) {
+			new ListadoArticulos();
+		}
+		
+								/*COMPRAS*/
+		//Nueva compra
+		else if(e.getSource().equals(mniComprarNuevo)) {
+			new NuevaCompra();
+		}
+		
+		//Listado compra
+		else if(e.getSource().equals(mniComprarListado)) {
+			new ListadoCompra();
+		}
 	}
 }
