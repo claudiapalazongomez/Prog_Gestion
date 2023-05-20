@@ -294,6 +294,10 @@ public class NuevoArticulo implements WindowListener, ActionListener, MouseListe
 			txtPrecio.setText("00.00");
 			txtFechaCompra.setText("DD/MM/AAAA");
 			txtTrackCode.setText("");
+			// Obtener el valor de la primera opción del Choice desde la clase Conexion
+	        String primeraOpcion = conexion.getPrimeraOpcionProveedor();
+	        // Establecer el valor seleccionado en el Choice
+	        choIDProveedor.select(primeraOpcion);
 			txtColor.requestFocus();
 		}
 	}

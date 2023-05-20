@@ -493,6 +493,11 @@ public class Conexion
 		}
 	}
 	
+	// Método que devuelve el valor de la primera opción del Choice al darle al botón de Limpiar
+	public String getPrimeraOpcionProveedor() {
+	    return "Elegir proveedor...";
+	}
+	
 	public void rellenarListadoArticulo(TextArea txaListado)
 	{
 		String sentencia = "SELECT idArticulo, colorArticulo, stockArticulo, referenciaArticulo, descuentoArticulo, precioArticulo, DATE_FORMAT(fechaCompraArticulo, \"%d/%m/%Y\") as 'Fecha Compra', trackCodeArticulo, idProveedorFK "
@@ -556,6 +561,14 @@ public class Conexion
 			System.out.println("Error 28-"+sqle.getMessage());
 			return 1;
 		}
+	}
+	
+	public String getPrimeraOpcionCliente() {
+	    return "Elegir cliente...";
+	}
+	
+	public String getPrimeraOpcionArticulo() {
+	    return "Elegir artículo...";
 	}
 	
 	public void rellenarListadoCompra(TextArea txaListado)

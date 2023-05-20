@@ -200,6 +200,12 @@ public class NuevaCompra implements WindowListener, ActionListener
 			// Se borra todo lo que has introducido y se pone el cursor en txtColor
 			txtCantidad.setText("");
 			txtFecha.setText("DD/MM/AAAA");
+			// Obtener el valor de la primera opción del Choice desde la clase Conexion
+	        String primeraOpcionCliente = conexion.getPrimeraOpcionCliente();
+	        String primeraOpcionArticulo = conexion.getPrimeraOpcionArticulo();
+	        // Establecer el valor seleccionado en el Choice
+	        choIDCliente.select(primeraOpcionCliente);
+	        choIDArticulo.select(primeraOpcionArticulo);
 			txtCantidad.requestFocus();
 		}
 		
