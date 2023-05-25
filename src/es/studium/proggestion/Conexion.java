@@ -503,7 +503,7 @@ public class Conexion
 		String sentencia = "SELECT idArticulo, colorArticulo, stockArticulo, referenciaArticulo, descuentoArticulo, precioArticulo, DATE_FORMAT(fechaCompraArticulo, \"%d/%m/%Y\") as 'Fecha Compra', trackCodeArticulo, idProveedorFK "
 				+ "FROM articulos "
 				+ "JOIN proveedores ON articulos.idProveedorFK = proveedores.idProveedor;";
-		String cadena = "Accede al listado de Artículos";
+		String cadena = "Accede al listado de Articulos";
 		try {
 			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY); 
 			// En resultado metemos todo lo que queremos almacenar en sentencia
@@ -563,6 +563,7 @@ public class Conexion
 		}
 	}
 	
+	// Métodos que devuelven el valor de la primera opción del Choice al darle al botón de Limpiar
 	public String getPrimeraOpcionCliente() {
 	    return "Elegir cliente...";
 	}

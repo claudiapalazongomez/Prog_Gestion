@@ -12,9 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.text.ParseException;
@@ -23,7 +20,7 @@ import java.util.Date;
 
 import javax.swing.JPanel;
 
-public class NuevoArticulo implements WindowListener, ActionListener, MouseListener, MouseMotionListener
+public class NuevoArticulo implements WindowListener, ActionListener
 {
 	Frame menuNuevoArticulo = new Frame("Nuevo Artículo");
 
@@ -133,8 +130,6 @@ public class NuevoArticulo implements WindowListener, ActionListener, MouseListe
 
 		btnAceptar.addActionListener(this);
 		btnLimpiar.addActionListener(this);
-		menuNuevoArticulo.addMouseListener(this);
-		menuNuevoArticulo.addMouseMotionListener(this);
 		menuNuevoArticulo.add(btnAceptar);
 		menuNuevoArticulo.add(btnLimpiar);
 
@@ -183,50 +178,6 @@ public class NuevoArticulo implements WindowListener, ActionListener, MouseListe
 
 	@Override
 	public void windowDeactivated(WindowEvent e)
-	{
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e)
-	{
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e)
-	{
-		mouseX = e.getX();
-		mouseY = e.getY();
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e)
-	{
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e)
-	{
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e)
-	{
-	}
-
-	@Override
-	public void mouseDragged(MouseEvent e)
-	{
-		// Obtener la posición actual del ratón
-		int newX = menuNuevoArticulo.getLocation().x + (e.getX() - mouseX);
-		int newY = menuNuevoArticulo.getLocation().y + (e.getY() - mouseY);
-
-		// Mover la ventana a la nueva posición deseada para poder verla entera
-		menuNuevoArticulo.setLocation(newX, newY);
-
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e)
 	{
 	}
 

@@ -61,7 +61,7 @@ public class NuevoCliente implements WindowListener, ActionListener
 
 		menuNuevoCliente.setLocationRelativeTo(null);
 		menuNuevoCliente.setResizable(false);
-		menuNuevoCliente.setSize(100, 400);
+		menuNuevoCliente.setSize(150, 400);
 		menuNuevoCliente.setVisible(true);
 	}
 	
