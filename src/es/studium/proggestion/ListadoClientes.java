@@ -78,19 +78,16 @@ public class ListadoClientes implements WindowListener, ActionListener
 
 			// Crear tabla y configurar anchos de columna
 			Table table = new Table(UnitValue.createPercentArray(new float[]
-			{ 1, 1, 1, 1, 1, 1, 1, 1, 1 }));
+			{ 1, 1, 1, 1, 1, 1 }));
 			table.setWidth(UnitValue.createPercentValue(100));
 
 			// Agregar encabezados a la tabla
 			table.addHeaderCell(new Cell().add(new Paragraph("ID").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Color").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Stock").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Referencia").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Descuento").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Precio").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Fecha de compra").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("Track code").setFont(fontHeader).setBold()));
-			table.addHeaderCell(new Cell().add(new Paragraph("ID Proveedor").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Nombre").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Primer apellido").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Segundo apellido").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("DNI").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Correo").setFont(fontHeader).setBold()));
 
 			// Agregar datos a la tabla desde el TextArea
 			String[] lines = txaListado.getText().split("\n");
