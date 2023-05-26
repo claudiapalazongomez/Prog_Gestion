@@ -500,7 +500,7 @@ public class Conexion
 	
 	public void rellenarListadoArticulo(TextArea txaListado)
 	{
-		String sentencia = "SELECT idArticulo, colorArticulo, stockArticulo, referenciaArticulo, descuentoArticulo, precioArticulo, DATE_FORMAT(fechaCompraArticulo, \"%d/%m/%Y\") as 'Fecha Compra', trackCodeArticulo, idProveedorFK "
+		String sentencia = "SELECT idArticulo, colorArticulo, stockArticulo, referenciaArticulo, descuentoArticulo, precioArticulo, DATE_FORMAT(fechaCompraArticulo, \"%d/%m/%Y\") as 'Fecha Compra', trackCodeArticulo, idProveedorFK, proveedores.nombreProveedor "
 				+ "FROM articulos "
 				+ "JOIN proveedores ON articulos.idProveedorFK = proveedores.idProveedor;";
 		String cadena = "Accede al listado de Articulos";
@@ -518,7 +518,8 @@ public class Conexion
 			    txaListado.append(resultado.getString("precioArticulo") + " - ");
 			    txaListado.append(resultado.getString("Fecha Compra") + " - ");
 			    txaListado.append(resultado.getString("trackCodeArticulo") + " - ");
-			    txaListado.append(resultado.getString("idProveedorFK") + "\n");
+			    txaListado.append(resultado.getString("idProveedorFK") + " - ");
+			    txaListado.append(resultado.getString("proveedores.nombreProveedor") + "\n");
 			}
 		}
 		catch (SQLException sqle)
@@ -574,7 +575,7 @@ public class Conexion
 	
 	public void rellenarListadoCompra(TextArea txaListado)
 	{
-		String sentencia = "SELECT idComprar, DATE_FORMAT(fecha, \"%d/%m/%Y\") as 'Fecha', cantidad, idClienteFK, idArticuloFK "
+		String sentencia = "SELECT idComprar, DATE_FORMAT(fecha, \"%d/%m/%Y\") as 'Fecha', cantidad, idClienteFK, clientes.dniCliente, idArticuloFK, articulos.referenciaArticulo "
 				+ "FROM comprar "
 				+ "JOIN clientes ON comprar.idClienteFK = clientes.idCliente "
 				+ "JOIN articulos ON comprar.idArticuloFK = articulos.idArticulo;";
@@ -589,7 +590,9 @@ public class Conexion
 			    txaListado.append(resultado.getString("Fecha") + " - ");
 			    txaListado.append(resultado.getString("cantidad") + " - ");
 			    txaListado.append(resultado.getString("idClienteFK") + " - ");
-			    txaListado.append(resultado.getString("idArticuloFK") + "\n");
+			    txaListado.append(resultado.getString("clientes.dniCliente") + " - ");
+			    txaListado.append(resultado.getString("idArticuloFK") + " - ");
+			    txaListado.append(resultado.getString("articulos.referenciaArticulo") + "\n");
 			}
 		}
 		catch (SQLException sqle)

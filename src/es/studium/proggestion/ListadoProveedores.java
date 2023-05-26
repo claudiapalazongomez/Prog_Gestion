@@ -49,6 +49,7 @@ public class ListadoProveedores implements WindowListener, ActionListener
 		menuProveedoresListado.setLocationRelativeTo(null);
 		menuProveedoresListado.setResizable(false);
 		menuProveedoresListado.setVisible(true);
+		txaListado.setEditable(false);
 	}
 
 	@Override

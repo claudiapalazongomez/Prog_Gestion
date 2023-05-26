@@ -48,6 +48,7 @@ public class ListadoClientes implements WindowListener, ActionListener
 		menuClientesListado.setLocationRelativeTo(null);
 		menuClientesListado.setResizable(false);
 		menuClientesListado.setVisible(true);
+		txaListado.setEditable(false);
 	}
 
 	@Override

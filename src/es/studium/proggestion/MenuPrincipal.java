@@ -21,6 +21,7 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	Menu menuClientes = new Menu("Clientes");
 	Menu menuComprar = new Menu("Compras");
 	Menu menuProveedores = new Menu("Proveedores");
+	Menu menuAyuda = new Menu("Ayuda");
 	
 	MenuItem mniUsuarioNuevo = new MenuItem("Nuevo");
 	MenuItem mniUsuarioListado = new MenuItem("Listado");
@@ -42,6 +43,8 @@ public class MenuPrincipal implements ActionListener, WindowListener
 	MenuItem mniProveedorListado = new MenuItem("Listado");
 	MenuItem mniProveedorBaja = new MenuItem("Baja");
 	MenuItem mniProveedorModificar = new MenuItem("Modificar");
+	
+	MenuItem mniAyudaAyuda = new MenuItem("Ayuda");
 	
 	Conexion conexion = new Conexion();
 	String cadena = "Cierra login";
@@ -103,12 +106,15 @@ public class MenuPrincipal implements ActionListener, WindowListener
 			menuProveedores.add(mniProveedorModificar);
 		}
 		
+		mniAyudaAyuda.addActionListener(this);
+		menuAyuda.add(mniAyudaAyuda);
+		
 		barraMenu.add(menuUsuario);
 		barraMenu.add(menuArticulos);
 		barraMenu.add(menuClientes);
 		barraMenu.add(menuComprar);
 		barraMenu.add(menuProveedores);
-		
+		barraMenu.add(menuAyuda);
 		
 		menuPrincipal.setLocationRelativeTo(null);
 		menuPrincipal.setResizable(false);	
@@ -223,5 +229,10 @@ public class MenuPrincipal implements ActionListener, WindowListener
 		else if(e.getSource().equals(mniComprarListado)) {
 			new ListadoCompra();
 		}
+		
+								/*AYUDA*/
+		/*else if(e.getSource().equals(mniAyudaAyuda)) {
+			new Ayuda();
+		}*/
 	}
 }

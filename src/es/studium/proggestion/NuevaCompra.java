@@ -156,6 +156,9 @@ public class NuevaCompra implements WindowListener, ActionListener
 			{
 				lblMensaje.setText("Los campos están vacíos");
 			}
+			else if(choIDCliente.getSelectedIndex()==0 || choIDArticulo.getSelectedIndex()==0) {
+				lblMensaje.setText("Seleccione un cliente o un artículo");
+			}
 			else
 			{
 				// Almacenar la fecha en formato americano

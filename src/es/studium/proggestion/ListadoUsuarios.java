@@ -49,6 +49,7 @@ Frame menuListadoUsuarios = new Frame("Listado Usuarios");
 		menuListadoUsuarios.setLocationRelativeTo(null);
 		menuListadoUsuarios.setResizable(false);
 		menuListadoUsuarios.setVisible(true);
+		txaListado.setEditable(false);
 	}
 
 	@Override

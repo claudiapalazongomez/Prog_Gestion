@@ -49,6 +49,7 @@ public class ListadoArticulos implements WindowListener, ActionListener
 		menuArticuloListado.setLocationRelativeTo(null);
 		menuArticuloListado.setResizable(false);
 		menuArticuloListado.setVisible(true);
+		txaListado.setEditable(false);
 	}
 
 	@Override
@@ -79,7 +80,7 @@ public class ListadoArticulos implements WindowListener, ActionListener
 
 			// Crear tabla y configurar anchos de columna
 			Table table = new Table(UnitValue.createPercentArray(new float[]
-			{ 1, 1, 1, 1, 1, 1, 1, 1, 1 }));
+			{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }));
 			table.setWidth(UnitValue.createPercentValue(100));
 
 			// Agregar encabezados a la tabla
@@ -92,6 +93,7 @@ public class ListadoArticulos implements WindowListener, ActionListener
 			table.addHeaderCell(new Cell().add(new Paragraph("Fecha de compra").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("Track code").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("ID Proveedor").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Nombre Proveedor").setFont(fontHeader).setBold()));
 			
 
 			// Agregar datos a la tabla desde el TextArea

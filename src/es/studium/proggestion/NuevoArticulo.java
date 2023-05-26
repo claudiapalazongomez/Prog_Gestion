@@ -49,8 +49,6 @@ public class NuevoArticulo implements WindowListener, ActionListener
 
 	Conexion conexion = new Conexion();
 
-	int mouseX, mouseY;
-
 	NuevoArticulo()
 	{
 		menuNuevoArticulo.setLayout(new FlowLayout());
@@ -191,15 +189,18 @@ public class NuevoArticulo implements WindowListener, ActionListener
 			dlgMensaje.addWindowListener(this);
 
 			// Si los campos están vacíos, evitar que se cree un artículo
-			if (txtColor.getText().length() == 0 || txtStock.getText().length() == 0
+			if (txtColor.getText().length() == 0 || txtStock.getText().length() == 0 || txtDescuento.getText().length() == 0
 					|| txtReferencia.getText().length() == 0 || txtTrackCode.getText().length() == 0)
 			{
 				lblMensaje.setText("Los campos están vacíos");
 			}
-			// Comprobar que el precio tiene un máximo de dos decimales
-			else if (!validarDosDecimales(txtPrecio.getText()))
+			else if (txtPrecio.getText().length()>=10)
 			{
-				lblMensaje.setText("El precio debe tener como máximo dos decimales");
+				lblMensaje.setText("Rellene el precio correctamente");
+			} 
+			else if (choIDProveedor.getSelectedIndex()==0)
+			{
+				lblMensaje.setText("Selecciona un proveedor");
 			} 
 			else
 			{
@@ -250,20 +251,6 @@ public class NuevoArticulo implements WindowListener, ActionListener
 	        // Establecer el valor seleccionado en el Choice
 	        choIDProveedor.select(primeraOpcion);
 			txtColor.requestFocus();
-		}
-	}
-
-	// Método para validar que en el precio se introducen dos decimales
-	private boolean validarDosDecimales(String precioCompra)
-	{
-		try
-		{
-			double precio = Double.parseDouble(precioCompra);
-			int decimales = (int) ((precio % 1) * 100); // Obtiene la parte decimal multiplicada por 100 como un entero
-			return decimales >= 0 && decimales <= 99; // Verifica que la parte decimal tenga exactamente uno o dos decimales
-		} catch (NumberFormatException e)
-		{
-			return false;
 		}
 	}
 	

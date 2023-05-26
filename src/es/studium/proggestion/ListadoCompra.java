@@ -50,6 +50,7 @@ public class ListadoCompra implements WindowListener, ActionListener
 		menuListadoCompra.setLocationRelativeTo(null);
 		menuListadoCompra.setResizable(false);
 		menuListadoCompra.setVisible(true);
+		txaListado.setEditable(false);
 	}
 	
 	@Override
@@ -80,7 +81,7 @@ public class ListadoCompra implements WindowListener, ActionListener
 
 			// Crear tabla y configurar anchos de columna
 			Table table = new Table(UnitValue.createPercentArray(new float[]
-			{ 1, 1, 1, 1, 1 }));
+			{ 1, 1, 1, 1, 1, 1, 1 }));
 			table.setWidth(UnitValue.createPercentValue(100));
 
 			// Agregar encabezados a la tabla
@@ -88,7 +89,9 @@ public class ListadoCompra implements WindowListener, ActionListener
 			table.addHeaderCell(new Cell().add(new Paragraph("Fecha").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("Cantidad").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("ID Cliente").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("DNI Cliente").setFont(fontHeader).setBold()));
 			table.addHeaderCell(new Cell().add(new Paragraph("ID Artículo").setFont(fontHeader).setBold()));
+			table.addHeaderCell(new Cell().add(new Paragraph("Referencia Artículo").setFont(fontHeader).setBold()));
 			
 			// Agregar datos a la tabla desde el TextArea
 			String[] lines = txaListado.getText().split("\n");

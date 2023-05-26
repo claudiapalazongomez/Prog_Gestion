@@ -21,3 +21,96 @@
 [25/05/2023 13:26:09][admin]Login exitoso
 [25/05/2023 13:26:18][admin]Cierra login
 [25/05/2023 13:27:35][admin]Login exitoso
+[25/05/2023 13:29:14][admin]Cierra login
+[25/05/2023 13:29:20][admin]Login exitoso
+[25/05/2023 13:29:23][admin]Accede al listado de Clientes
+[25/05/2023 13:30:06][admin]Accede al listado de Clientes
+[25/05/2023 13:30:10][admin]Accede al listado de Compras
+[25/05/2023 13:33:49][admin]Accede al listado de Proveedores
+[25/05/2023 14:01:00][admin]Cierra login
+[25/05/2023 14:01:09][admin]Login exitoso
+[25/05/2023 14:01:14][admin]Accede al listado de Articulos
+[25/05/2023 14:01:39][admin]Cierra login
+[25/05/2023 14:03:12][admin]Login exitoso
+[25/05/2023 14:05:28][admin]Cierra login
+[25/05/2023 14:13:23][admin]Login exitoso
+[25/05/2023 14:13:41][admin]Cierra login
+[25/05/2023 14:14:54][admin]Login exitoso
+[25/05/2023 14:15:40][admin]INSERT INTO articulos VALUES (null, '1', '1', '1', '1', '1000.2222', '2021/07/13', '1', '1');
+[25/05/2023 14:17:13][admin]Cierra login
+[25/05/2023 16:25:33][admin]Login exitoso
+[25/05/2023 16:26:06][admin]Cierra login
+[25/05/2023 16:29:07][admin]Login exitoso
+[25/05/2023 16:29:35][admin]Cierra login
+[25/05/2023 17:54:40][admin]Login exitoso
+[25/05/2023 17:55:19][admin]Cierra login
+[25/05/2023 17:57:33][admin]Login exitoso
+[25/05/2023 17:58:26][admin]INSERT INTO articulos VALUES (null, '1', '1', '1', '1', '00.00', '2022/01/13', '1', '1');
+[25/05/2023 18:00:16][admin]Login exitoso
+[25/05/2023 18:00:19][admin]Cierra login
+[25/05/2023 18:00:46][admin]Login exitoso
+[25/05/2023 18:10:53][admin]Cierra login
+[25/05/2023 18:12:11][admin]Accede al listado de Articulos
+[25/05/2023 18:13:00][admin]Accede al listado de Usuarios
+[25/05/2023 18:14:23][admin]Login exitoso
+[25/05/2023 18:14:26][admin]Accede al listado de Articulos
+[25/05/2023 18:14:32][admin]Accede al listado de Clientes
+[25/05/2023 18:14:47][admin]Cierra login
+[25/05/2023 18:28:54][admin]Accede al listado de Usuarios
+[25/05/2023 18:28:57][admin]Cierra login
+[25/05/2023 18:29:05][admin]Login exitoso
+[25/05/2023 18:29:09][admin]Accede al listado de Usuarios
+[25/05/2023 18:30:04][admin]Accede al listado de Articulos
+[25/05/2023 18:31:23][admin]Accede al listado de Clientes
+[25/05/2023 18:39:48][admin]Cierra login
+[25/05/2023 18:41:48][admin]Login exitoso
+[25/05/2023 18:42:08][admin]Cierra login
+[25/05/2023 19:00:25][admin]Login exitoso
+[25/05/2023 19:09:47][admin]Accede al listado de Proveedores
+[25/05/2023 19:11:48][admin]Cierra login
+[25/05/2023 19:15:03][admin]Login exitoso
+[25/05/2023 19:15:07][admin]Accede al listado de Compras
+[25/05/2023 19:18:12][admin]Cierra login
+[26/05/2023 17:26:58][admin]Login exitoso
+[26/05/2023 17:27:02][admin]Accede al listado de Compras
+[26/05/2023 17:27:18][admin]Cierra login
+[26/05/2023 17:28:26][admin]Login exitoso
+[26/05/2023 17:28:27][admin]Accede al listado de Articulos
+[26/05/2023 17:28:37][admin]Accede al listado de Compras
+[26/05/2023 17:35:04][admin]Cierra login
+[26/05/2023 17:35:08][admin]Login exitoso
+[26/05/2023 17:35:12][admin]Accede al listado de Compras
+[26/05/2023 17:35:28][admin]Cierra login
+[26/05/2023 17:37:38][admin]Login exitoso
+[26/05/2023 17:37:47][admin]Cierra login
+[26/05/2023 17:38:16][admin]Login exitoso
+[26/05/2023 17:38:18][admin]Accede al listado de Articulos
+[26/05/2023 17:38:27][admin]Cierra login
+[26/05/2023 17:43:51][admin]Login exitoso
+[26/05/2023 17:43:59][admin]Accede al listado de Articulos
+[26/05/2023 17:44:43][admin]Accede al listado de Compras
+[26/05/2023 17:47:00][admin]Cierra login
+[26/05/2023 17:53:06][admin]Login exitoso
+[26/05/2023 17:57:00][admin]Login exitoso
+[26/05/2023 17:57:37][admin]Cierra login
+[26/05/2023 17:57:39][admin]Cierra login
+[26/05/2023 18:01:04][admin]Login exitoso
+[26/05/2023 18:03:24][admin]INSERT INTO articulos VALUES (null, 'Amarillo', '5', '6677/1122/9944', '10', '35.99', '2023/05/26', 'CB91827364', '4');
+[26/05/2023 18:11:14][admin]Login exitoso
+[26/05/2023 18:17:07][admin]Cierra login
+[26/05/2023 18:17:11][admin]Accede al listado de Articulos
+[26/05/2023 18:19:46][admin]Accede al listado de Articulos
+[26/05/2023 18:24:21][admin]Accede al listado de Usuarios
+[26/05/2023 18:27:21][admin]Accede al listado de Clientes
+[26/05/2023 18:33:15][admin]INSERT INTO comprar VALUES (null, '2023/02/12', '2', '10', '5');
+[26/05/2023 18:37:31][admin]Cierra login
+[26/05/2023 18:38:20][admin]Login exitoso
+[26/05/2023 18:38:22][admin]Accede al listado de Compras
+[26/05/2023 18:40:24][admin]Accede al listado de Proveedores
+[26/05/2023 18:51:56][admin]Login exitoso
+[26/05/2023 18:52:02][admin]Cierra login
+[26/05/2023 18:52:06][admin]Cierra login
+[26/05/2023 18:52:14][admin]Login exitoso
+[26/05/2023 19:01:19][admin]Cierra login
+[26/05/2023 22:06:38][admin]Login exitoso
+[26/05/2023 22:06:40][admin]Cierra login
