@@ -1,0 +1,17 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=htmlpg.chm
+Contents file=Table of Contents.hhc
+Default topic=introduccion.html
+Display compile progress=No
+Language=0xc0a Español (España, internacional)
+Title=Programa de Gestión
+
+
+[FILES]
+desarrollo.html
+introduccion.html
+loginadmin.html
+
+[INFOTYPES]
+

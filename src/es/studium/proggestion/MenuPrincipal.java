@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 
 
 public class MenuPrincipal implements ActionListener, WindowListener
@@ -231,8 +232,15 @@ public class MenuPrincipal implements ActionListener, WindowListener
 		}
 		
 								/*AYUDA*/
-		/*else if(e.getSource().equals(mniAyudaAyuda)) {
-			new Ayuda();
-		}*/
+		else if(e.getSource().equals(mniAyudaAyuda)) {
+			try
+			{
+			Runtime.getRuntime().exec("hh.exe htmlpg.chm");
+			}
+			catch (IOException eo)
+			{
+			eo.printStackTrace();
+			}
+		}
 	}
 }

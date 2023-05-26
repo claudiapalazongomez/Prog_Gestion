@@ -114,3 +114,5 @@
 [26/05/2023 19:01:19][admin]Cierra login
 [26/05/2023 22:06:38][admin]Login exitoso
 [26/05/2023 22:06:40][admin]Cierra login
+[26/05/2023 23:51:56][admin]Login exitoso
+[26/05/2023 23:52:08][admin]Cierra login
